@@ -10,9 +10,9 @@ func run(port string) {
 	r.GET("/getlottery/:e_no", func(c *gin.Context) {
 		var e_no = c.Param("e_no")
 		var code = 200
-		var msg = nil
+		var msg = "" 
 		if judgeEno(e_no) {
-			msg = e_no + "is good"
+			msg = e_no +"good"
 		} else {
 			code = 400
 			msg = e_no + "is invalid" 
