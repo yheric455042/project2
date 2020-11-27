@@ -12,12 +12,18 @@ func run(port string) {
 		var code = 200
 		var msg = nil
 		if judgeEno(e_no) {
-			msg := gin.H{"message": e_no + "is good"})
+			msg = e_no + "is good"
 		} else {
 			code = 400
-			msg := gin.H{"error": e_no + "is invalid"}
+			msg = e_no + "is invalid" 
 		}
-		c.JSON(code,msg)
+		
+		if code == 200 {
+			c.JSON(200,gin.H{"message": msg })
+		} else {
+				
+			c.JSON(code,gin.H{"error": msg })
+		}
 
 	})
 	r.Run(":"+port) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
