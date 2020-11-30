@@ -5,7 +5,7 @@ import (
 )
 
 
-func run(port string) {
+func Run(port string) {
 	r := gin.Default()
 	r.GET("/getlottery/:e_no", func(c *gin.Context) {
 		var e_no = c.Param("e_no")
